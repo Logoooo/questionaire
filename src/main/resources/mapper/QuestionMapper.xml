@@ -6,36 +6,27 @@
     <result column="question" jdbcType="VARCHAR" property="question" />
     <result column="answer" jdbcType="VARCHAR" property="answer" />
     <result column="score" jdbcType="VARCHAR" property="score" />
-    <result column="number" jdbcType="INTEGER" property="number" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, question, answer, score, number
+    id, question, answer, score, user_id
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from questionnaire
+    from questionnaire_new
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <select id="selectLastNumber"  resultType="com.tcm.quest.model.Question">
-    select
-    *
-    from questionnaire
-    order by id
-    desc limit 1
-  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from questionnaire
+    delete from questionnaire_new
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.tcm.quest.model.Question">
-    insert into questionnaire (id, question, answer, 
-      score, number)
-    values (#{id,jdbcType=INTEGER}, #{question,jdbcType=VARCHAR}, #{answer,jdbcType=VARCHAR}, 
-      #{score,jdbcType=VARCHAR}, #{number,jdbcType=INTEGER})
+    insert into questionnaire_new (id, question, answer,score, user_id)
+    values (#{id,jdbcType=INTEGER}, #{question,jdbcType=VARCHAR}, #{answer,jdbcType=VARCHAR}, #{score,jdbcType=VARCHAR},  #{userId,jdbcType=INTEGER} )
   </insert>
   <insert id="insertSelective" parameterType="com.tcm.quest.model.Question">
-    insert into questionnaire
+    insert into questionnaire_new
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -49,8 +40,8 @@
       <if test="score != null">
         score,
       </if>
-      <if test="number != null">
-        number,
+      <if test="userId != null">
+        user_id,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -66,13 +57,13 @@
       <if test="score != null">
         #{score,jdbcType=VARCHAR},
       </if>
-      <if test="number != null">
-        #{number,jdbcType=INTEGER},
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.tcm.quest.model.Question">
-    update questionnaire
+    update questionnaire_new
     <set>
       <if test="question != null">
         question = #{question,jdbcType=VARCHAR},
@@ -83,18 +74,18 @@
       <if test="score != null">
         score = #{score,jdbcType=VARCHAR},
       </if>
-      <if test="number != null">
-        number = #{number,jdbcType=INTEGER},
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.tcm.quest.model.Question">
-    update questionnaire
+    update questionnaire_new
     set question = #{question,jdbcType=VARCHAR},
       answer = #{answer,jdbcType=VARCHAR},
       score = #{score,jdbcType=VARCHAR},
-      number = #{number,jdbcType=INTEGER}
+      user_id = #{userId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 

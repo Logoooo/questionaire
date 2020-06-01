@@ -9,7 +9,9 @@ public class Question {
 
     private String score;
 
-    private Integer number;
+//    private Integer number;
+
+    private Integer userId;
 
     public Integer getId() {
         return id;
@@ -42,12 +44,20 @@ public class Question {
     public void setScore(String score) {
         this.score = score == null ? null : score.trim();
     }
+//
+//    public Integer getNumber() {
+//        return number;
+//    }
+//
+//    public void setNumber(Integer number) {
+//        this.number = number;
+//    }
 
-    public Integer getNumber() {
-        return number;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setNumber(Integer number) {
-        this.number = number;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 }

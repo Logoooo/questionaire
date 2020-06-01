@@ -2,6 +2,7 @@ package com.tcm.quest.service.impl;
 
 import com.tcm.quest.mapper.QuestionMapper;
 import com.tcm.quest.model.Question;
+import com.tcm.quest.model.UserInfoPress;
 import com.tcm.quest.service.QuestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,9 +16,10 @@ public class QuestServiceImpl implements QuestService {
        return questMapper.insert(question);
     }
 
-    @Override
-    public Question selectLastNumber() {
+//    @Override
+//    public Question selectLastNumber() {
+//
+//        return questMapper.selectLastNumber();
+//    }
 
-        return questMapper.selectLastNumber();
-    }
 }

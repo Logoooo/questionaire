@@ -58,8 +58,14 @@
          enable*ByExample
             是否生成 example类 -->
 
-        <table schema="tcm" tableName="questionnaire" enableSelectByPrimaryKey="true"
+        <table schema="tcm" tableName="questionnaire_new" enableSelectByPrimaryKey="true"
                domainObjectName="Question" enableCountByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               enableUpdateByExample="false">
+        </table>
+
+        <table schema="tcm" tableName="user_info_press" enableSelectByPrimaryKey="true"
+               domainObjectName="UserInfoPress" enableCountByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                enableUpdateByExample="false">
         </table>
