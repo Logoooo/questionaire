@@ -5,11 +5,41 @@ public class UserInfoPress {
 
     private String name;
 
+    private Integer age;
+
     private String sex;
 
     private Integer pressHigh;
 
     private Integer pressLow;
+
+    private String hospital;
+
+    private Integer visits;
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public String getHospital() {
+        return hospital;
+    }
+
+    public void setHospital(String hospital) {
+        this.hospital = hospital;
+    }
+
+    public Integer getVisits() {
+        return visits;
+    }
+
+    public void setVisits(Integer visits) {
+        this.visits = visits;
+    }
 
     public Integer getUserId() {
         return userId;
@@ -49,5 +79,19 @@ public class UserInfoPress {
 
     public void setPressLow(Integer pressLow) {
         this.pressLow = pressLow;
+    }
+
+    @Override
+    public String toString() {
+        return "UserInfoPress{" +
+                "userId=" + userId +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", sex='" + sex + '\'' +
+                ", pressHigh=" + pressHigh +
+                ", pressLow=" + pressLow +
+                ", hospital='" + hospital + '\'' +
+                ", visits=" + visits +
+                '}';
     }
 }

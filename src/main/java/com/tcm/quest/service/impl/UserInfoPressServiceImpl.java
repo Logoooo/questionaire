@@ -20,4 +20,9 @@ public class UserInfoPressServiceImpl implements UserInfoPressService {
     public int selectLastUserId() {
         return userInfoPressMapper.selectLastUserId();
     }
+
+    @Override
+    public UserInfoPress selectByUserId(int user_id) {
+        return userInfoPressMapper.selectByPrimaryKey(user_id);
+    }
 }

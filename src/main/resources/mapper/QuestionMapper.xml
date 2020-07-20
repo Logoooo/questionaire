@@ -17,6 +17,12 @@
     from questionnaire_new
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="countScore" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+    select
+    sum(score)
+    from questionnaire_new
+    where id = #{id,jdbcType=INTEGER}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from questionnaire_new
     where id = #{id,jdbcType=INTEGER}

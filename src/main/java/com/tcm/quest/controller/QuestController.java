@@ -54,6 +54,12 @@ public class QuestController {
                 userInfoPress.setPressHigh(Integer.valueOf(entry.getValue().toString()));
             }else if(entry.getKey().equals("press_low")){
                 userInfoPress.setPressLow(Integer.valueOf(entry.getValue().toString()));
+            }else if (entry.getKey().equals("age")){
+                userInfoPress.setAge(Integer.valueOf(entry.getValue().toString()));
+            }else if (entry.getKey().equals("hospital")){
+                userInfoPress.setHospital(entry.getValue().toString());
+            }else if (entry.getKey().equals("visit")){
+                userInfoPress.setVisits(Integer.valueOf(entry.getValue().toString()));
             }
 
         }
@@ -83,52 +89,21 @@ public class QuestController {
             questService.addQuest(question);
         }
 
-
-
-
-       /** Iterator iterator = jsonObject1.entrySet().iterator();
-        while (iterator.hasNext()){
-            Map.Entry entry = (Map.Entry)iterator.next();
-            System.out.println(entry.getKey().toString());
-            Question question = new Question();
-            String[] strArr = entry.getValue().toString().split("\\#");
-            System.out.println(strArr[0]);
-            System.out.println(strArr[1]);
-            question.setQuestion(entry.getKey().toString());
-            question.setAnswer(strArr[0]);
-            question.setScore(strArr[1]);
-            question.setNumber(number);
-            questService.addQuest(question);
-        }*/
-        //不加postdata
-//        JSONObject jsonObject = JSONObject.parseObject(parms);
-//        System.out.println(jsonObject);
+        //将医院、患者姓名、访问次数、总得分返回
+//        UserInfoPress userInfoPress1 = new UserInfoPress();
+//        try{
+//            if (userInfoPress.getUserId() != null){
 //
-//        Iterator iterator = jsonObject.entrySet().iterator();
-//        int number;
-//        number = questService.selectLastNumber().getNumber();
-//        System.out.println("查询id："+questService.selectLastNumber().getId()+"查询问题为："+questService.selectLastNumber().getQuestion()+"答案为："+questService.selectLastNumber().getAnswer());
-//        System.out.println("number的值为："+number);
-//        if(number != 0){
-//            number = number+1;
-//            System.out.println(number);
-//        }else{
-//            number = 1;
+//                userInfoPress1 = userInfoPressService.selectByUserId(userInfoPress.getUserId());
+//                System.out.println(userInfoPress1.toString());
+//            }
+//        }catch (NullPointerException e){
+//            e.printStackTrace();
 //        }
-//
-//        while (iterator.hasNext()){
-//            Map.Entry entry = (Map.Entry)iterator.next();
-//            System.out.println(entry.getKey().toString());
-//            Question question = new Question();
-//            String[] strArr = entry.getValue().toString().split("\\#");
-//            System.out.println(strArr[0]);
-//            System.out.println(strArr[1]);
-//            question.setQuestion(entry.getKey().toString());
-//            question.setAnswer(strArr[0]);
-//            question.setScore(strArr[1]);
-//            question.setNumber(number);
-//            questService.addQuest(question);
-//        }
+        //统计得分
+//        int score = questService.countScore(userInfoPress.getUserId());
+//        System.out.println(score);
         return 1;
     }
 }
+

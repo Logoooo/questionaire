@@ -8,4 +8,8 @@ public interface UserInfoPressService {
 
     //查找最后一个用户的id
     int selectLastUserId();
+
+    //根据userId查询
+    UserInfoPress selectByUserId(int user_id);
+
 }

@@ -16,7 +16,12 @@ public class QuestServiceImpl implements QuestService {
        return questMapper.insert(question);
     }
 
-//    @Override
+    @Override
+    public int countScore(int user_id) {
+        return questMapper.countScore(user_id);
+    }
+
+    //    @Override
 //    public Question selectLastNumber() {
 //
 //        return questMapper.selectLastNumber();
